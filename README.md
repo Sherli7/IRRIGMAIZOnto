@@ -13,6 +13,7 @@ Ce projet est une API REST construite avec Flask qui permet d'extraire des donn�
 - Extraire les annotations associées aux classes, propriétés et individus.
 - Récupérer des informations sur les propriétés d'objet, les propriétés de données, et les individus.
 - Exposer les données de l'ontologie via plusieurs routes API.
+- Comparaison basée sur les instances des classes et relations.
 
 ## Prérequis
 
@@ -95,8 +96,8 @@ Voici les principaux points d'accès disponibles dans l'API :
 .
 ├── app.py                 # Code principal de l'application Flask
 ├── ontology_maize.owl     # Fichier OWL (ontologie)
-└── README.md              # Ce fichier de documentation
-└── requiments.md          # Regroupe les dépendances nécessaires
+├── README.md              # Ce fichier de documentation
+└── requirements.txt       # Regroupe les dépendances nécessaires
 ```
 
 ## Contribution
@@ -106,3 +107,4 @@ Les contributions sont les bienvenues. Si vous souhaitez contribuer, veuillez ou
 ## Licence
 
 Ce projet est sous licence [MIT License](LICENSE).
+

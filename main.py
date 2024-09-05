@@ -10,7 +10,6 @@ ontology_path = "irrigation_maize.owl"
 # Charger l'ontologie
 onto = get_ontology(ontology_path).load()
 
-
 # Extraire les annotations associées à une entité (classe, individu, propriété)
 def extract_annotations(entity):
     annotations = {
@@ -24,6 +23,12 @@ def extract_annotations(entity):
     }
     return {k: v for k, v in annotations.items() if v is not None}  # Supprimer les entrées None
 
+# Fonction pour obtenir le type de la portée sous forme lisible
+def get_readable_range(r):
+    if isinstance(r, type):
+        return r.__name__  # Retourne le nom du type, par exemple 'bool', 'float'
+    else:
+        return str(r)
 
 # Charger les données de l'ontologie avec les relations et annotations
 def get_ontology_data():
@@ -54,7 +59,7 @@ def get_ontology_data():
                 data_properties.append({
                     "name": prop.name,
                     "domain": d.name,
-                    "range": str(r),
+                    "range": get_readable_range(r),  # Utilise la fonction pour rendre le type lisible
                     "annotations": extract_annotations(prop)
                 })
 
@@ -95,37 +100,30 @@ def get_ontology_data():
         "individuals": individuals
     }
 
-
 ontology_data = get_ontology_data()
-
 
 # Routes Flask pour obtenir les données de l'ontologie
 @app.route('/ontology', methods=['GET'])
 def get_ontology():
     return jsonify(ontology_data)
 
-
 @app.route('/ontology/classes', methods=['GET'])
 def get_classes():
     return jsonify(ontology_data['classes'])
-
 
 @app.route('/ontology/object_properties', methods=['GET'])
 def get_object_properties():
     return jsonify(ontology_data['object_properties'])
 
-
 @app.route('/ontology/data_properties', methods=['GET'])
 def get_data_properties():
     return jsonify(ontology_data['data_properties'])
-
 
 @app.route('/ontology/individuals', methods=['GET'])
 def get_individuals():
     return jsonify(ontology_data['individuals'])
 
-
 # Démarrage de l'application avec port personnalisé
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8087))  # Définit le port via une variable d'environnement, 5000 par défaut
+    port = int(os.environ.get('PORT', 8087))  # Définit le port via une variable d'environnement
     app.run(debug=True, port=port)

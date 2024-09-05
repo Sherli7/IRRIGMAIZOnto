@@ -39,7 +39,7 @@ git clone https://github.com/Sherli7/IRRIGMAIZOnto.git
 2. Naviguez dans le répertoire du projet :
 
 ```bash
-cd flask-ontology-api
+cd IRRIGMAIZOnto
 ```
 
 3. Placez votre fichier d'ontologie OWL dans le dossier IRRIGMAIZOnto :

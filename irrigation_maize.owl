@@ -1,0 +1,1162 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:ns2="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:ns3="http://www.example.org/irrigation#"
+     xmlns:ns5="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#author -->
+
+    <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#author"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#isDefinedAs -->
+
+    <AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedAs"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasIrrigationAction -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasIrrigationAction">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggeredByThreshold"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasIrrigationEvent -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasIrrigationEvent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment>Relie une culture de maïs à un événement d&apos;irrigation spécifique.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasMeasurement -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasMeasurement">
+        <rdfs:comment>Lie le capteur aux valeurs mesurées</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasWaterRequirement -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasWaterRequirement">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GrowthStagesOfMaize"/>
+        <rdfs:comment>Associe un stade de croissance du maïs à ses besoins en eau spécifiques.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#isTriggeredBySoilMoistureThreshold -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#isTriggeredBySoilMoistureThreshold">
+        <rdfs:comment>Relie un événement d&apos;irrigation à un seuil d&apos;humidité du sol qui déclenche l&apos;irrigation.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#rainfallDetected -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#rainfallDetected">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#RainfallSensor"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Rain"/>
+        <rdfs:comment>Une propriété booléenne (vrai/faux) qui indique s&apos;il pleut ou non.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#reducesWaterStress -->
+
+    <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#reducesWaterStress">
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#Irrigation"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WaterStress"/>
+        <rdfs:comment>Décrit la relation entre l&apos;irrigation et la réduction du stress hydrique dans une période critique.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#hasEvapotranspiration -->
+
+    <ObjectProperty rdf:about="http://www.example.org/irrigation#hasEvapotranspiration">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#Evapotranspiration"/>
+        <rdfs:comment>Relie une entité, telle que le sol ou une culture, à sa mesure d&apos;évapotranspiration associée. Cette propriété lie la quantité d&apos;eau perdue à la fois par évaporation et par transpiration à un paramètre environnemental ou un lieu spécifique.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#hasSensor -->
+
+    <ObjectProperty rdf:about="http://www.example.org/irrigation#hasSensor">
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#EnvironmentalParameter"/>
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#Soil"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#Sensor"/>
+        <rdfs:comment>Associe une entité, telle que le sol ou un paramètre environnemental, à un capteur chargé de mesurer des aspects spécifiques tels que l&apos;humidité, la température ou la tension.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#hasSoilMoisture -->
+
+    <ObjectProperty rdf:about="http://www.example.org/irrigation#hasSoilMoisture">
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#Soil"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#SoilMoisture"/>
+        <rdfs:comment>Lie une entité de sol à une mesure spécifique de l&apos;humidité du sol. Cette propriété est utilisée pour associer le sol à ses niveaux d&apos;humidité actuels ou historiques tels que détectés par un capteur.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#hasSoilTension -->
+
+    <ObjectProperty rdf:about="http://www.example.org/irrigation#hasSoilTension">
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#Soil"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#SoilTension"/>
+        <rdfs:comment>Connecte une entité de sol à sa mesure de la tension du sol. Cette propriété capture la relation entre le sol et la tension de l&apos;eau dans le sol, indiquant la force avec laquelle l&apos;eau est retenue dans le sol.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#measures -->
+
+    <ObjectProperty rdf:about="http://www.example.org/irrigation#measures">
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#Sensor"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#Evapotranspiration"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#SoilMoisture"/>
+        <rdfs:range rdf:resource="http://www.example.org/irrigation#SoilTension"/>
+        <rdfs:comment>Définit une relation générale entre un capteur et le paramètre qu&apos;il mesure. Cette propriété peut être utilisée pour lier tout capteur à la propriété environnementale ou du sol qu&apos;il mesure.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#triggersIrrigation -->
+
+    <ObjectProperty rdf:about="http://www.example.org/irrigation#triggersIrrigation">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent"/>
+        <rdfs:comment>Indique que lorsqu&apos;un seuil d&apos;humidité est atteint, il déclenche un événement d&apos;irrigation.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#isRaining -->
+
+    <DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#isRaining">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Rain"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Une propriété de données booléenne qui indique s&apos;il pleut actuellement (vrai/faux).</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#evapotranspirationRate -->
+
+    <DatatypeProperty rdf:about="http://www.example.org/irrigation#evapotranspirationRate">
+        <rdfs:domain rdf:resource="http://www.example.org/irrigation#Evapotranspiration"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Mesure le taux d&apos;évapotranspiration dans le cadre des besoins en irrigation.</rdfs:comment>
+        <rdfs:label>Taux d&apos;évapotranspiration</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#irrigationAmount -->
+
+    <DatatypeProperty rdf:about="http://www.example.org/irrigation#irrigationAmount">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggeredByThreshold"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Mesure la quantité d&apos;eau apportée par une session d&apos;irrigation.</rdfs:comment>
+        <rdfs:label>Quantité d&apos;irrigation</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#moistureLevel -->
+
+    <DatatypeProperty rdf:about="http://www.example.org/irrigation#moistureLevel">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Mesure le pourcentage d&apos;humidité du sol détecté par le capteur.</rdfs:comment>
+        <rdfs:label>Niveau d&apos;humidité</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#rainfallAmount -->
+
+    <DatatypeProperty rdf:about="http://www.example.org/irrigation#rainfallAmount">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#RainfallSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Mesure la quantité de précipitations sur une période donnée.</rdfs:comment>
+        <rdfs:label>Quantité de pluie</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#tensionLevel -->
+
+    <DatatypeProperty rdf:about="http://www.example.org/irrigation#tensionLevel">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilTensionSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Mesure la tension dans le sol en fonction du stress hydrique.</rdfs:comment>
+        <rdfs:label>Niveau de tension</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/irrigation#thresholdValue -->
+
+    <DatatypeProperty rdf:about="http://www.example.org/irrigation#thresholdValue">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Valeur seuil qui déclenche l&apos;irrigation en fonction de l&apos;humidité du sol.</rdfs:comment>
+        <rdfs:label>Valeur seuil</rdfs:label>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#CulturalCoefficient -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#CulturalCoefficient">
+        <rdfs:comment>Représente le coefficient culturel de la culture du maïs pour différents stades de croissance.</rdfs:comment>
+        <rdfs:label>Coefficient culturel (Kc)</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#GrowthStagesOfMaize -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GrowthStagesOfMaize">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#MaizeCrop"/>
+        <rdfs:comment>Représente les stades de croissance du maïs, à la fois végétatifs et reproductifs.</rdfs:comment>
+        <rdfs:label>Stades de croissance du maïs</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IrrigationBasedOnWeatherForecast -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IrrigationBasedOnWeatherForecast">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent"/>
+        <rdfs:label>Irrigation basée sur la prévision météorologique</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggerThreshold -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggerThreshold">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+        <rdfs:label>Seuil de déclenchement de l&apos;irrigation</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggeredByThreshold -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggeredByThreshold">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationEvent"/>
+        <rdfs:label>Déclenchement d&apos;irrigation par seuil</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Kc_FloraisonFemelle -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Kc_FloraisonFemelle">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#CulturalCoefficient"/>
+        <rdfs:comment>Coefficient Kc pour le stade R1 (Kc = 1,1).</rdfs:comment>
+        <rdfs:label>Kc pour floraison féminine</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Kc_Levee -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Kc_Levee">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#CulturalCoefficient"/>
+        <rdfs:comment>Coefficient Kc pour le stade de levée du maïs (Kc = 0,2).</rdfs:comment>
+        <rdfs:label>Kc pour levée</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Kc_V3 -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Kc_V3">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#CulturalCoefficient"/>
+        <rdfs:comment>Coefficient Kc pour le stade V3 (Kc = 0,3).</rdfs:comment>
+        <rdfs:label>Kc pour V3</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Kc_V6_V8 -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Kc_V6_V8">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#CulturalCoefficient"/>
+        <rdfs:comment>Coefficient Kc pour les stades V6 à V8 (Kc = 0,5).</rdfs:comment>
+        <rdfs:label>Kc pour V6-V8</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#R1 -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#R1">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ReproductiveStage"/>
+        <rdfs:comment>Stade de la reproduction marqué par l&apos;apparition des soies.</rdfs:comment>
+        <rdfs:label>Apparition des soies</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#R2 -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#R2">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ReproductiveStage"/>
+        <rdfs:comment>Stade où les grains commencent à se gonfler.</rdfs:comment>
+        <rdfs:label>Gonflement</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#R3ToR6 -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#R3ToR6">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ReproductiveStage"/>
+        <rdfs:comment>Stades successifs de développement des grains, de laiteux à maturité.</rdfs:comment>
+        <rdfs:label>Laiteux...Maturité</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Rain -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Rain">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#EnvironmentalParameter"/>
+        <rdfs:label>Pluie</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#RainfallSensor -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RainfallSensor">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#Sensor"/>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ReproductiveStage -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReproductiveStage">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GrowthStagesOfMaize"/>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilMoistureSensor -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureSensor">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#Sensor"/>
+        <rdfs:comment>Un dispositif ou capteur utilisé pour mesurer le niveau d&apos;humidité dans le sol. Il collecte des données sur la quantité d&apos;eau présente dans le sol, ce qui est essentiel pour déterminer les besoins en irrigation des cultures.</rdfs:comment>
+        <rdfs:label>Capteur d&apos;humidité du sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+        <rdfs:label>Seuil d&apos;humidité du sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilTensionSensor -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilTensionSensor">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#Sensor"/>
+        <rdfs:label>Capteur de tension du sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilTensionThreshold -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilTensionThreshold">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+        <rdfs:label>Seuil de tension du sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Temperature -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Temperature">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#EnvironmentalParameter"/>
+        <rdfs:label>Température</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#V1 -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#V1">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VegetativeStage"/>
+        <rdfs:comment>Premier stade foliaire où la première collerette est visible.</rdfs:comment>
+        <rdfs:label>Premier collet de feuille</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#V2ToVn -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#V2ToVn">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VegetativeStage"/>
+        <rdfs:comment>Stades foliaires successifs jusqu&apos;à l&apos;apparition de la panicule (VT).</rdfs:comment>
+        <rdfs:label>Deuxième collet...Nième collet</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#VE -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VE">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VegetativeStage"/>
+        <rdfs:comment>Le stade de levée du maïs, environ 4-5 jours après le semis.</rdfs:comment>
+        <rdfs:label>Levée</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#VT -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VT">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VegetativeStage"/>
+        <rdfs:comment>Apparition de la panicule, marquant la transition vers les stades reproductifs.</rdfs:comment>
+        <rdfs:label>Panicule</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#VegetativeStage -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VegetativeStage">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GrowthStagesOfMaize"/>
+        <rdfs:label>Stades végétatifs</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#WaterStress -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WaterStress">
+        <rdfs:comment>Représente les conditions dans lesquelles la culture de maïs subit un stress hydrique, affectant sa croissance et son rendement.</rdfs:comment>
+        <rdfs:label>Stress hydrique</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#WaterStressThreshold -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WaterStressThreshold">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+        <rdfs:label>Seuil de stress hydrique</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#WeatherSensor -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WeatherSensor">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#Sensor"/>
+        <rdfs:label>Capteur météorologique</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#EnvironmentalParameter -->
+
+    <Class rdf:about="http://www.example.org/irrigation#EnvironmentalParameter">
+        <rdfs:comment>classe qui regroupe les différentes conditions environnementales qui peuvent affecter les cultures et les processus d&apos;irrigation, telles que la température, l&apos;humidité de l&apos;air, la lumière, et les précipitations.</rdfs:comment>
+        <rdfs:label>Paramètre environnemental</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#Evapotranspiration -->
+
+    <Class rdf:about="http://www.example.org/irrigation#Evapotranspiration">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#EnvironmentalParameter"/>
+        <rdfs:comment>processus combiné par lequel l&apos;eau est transférée de la surface terrestre à l&apos;atmosphère, par évaporation de l&apos;eau du sol et transpiration des plantes. C&apos;est un indicateur clé pour calculer les besoins en irrigation.</rdfs:comment>
+        <rdfs:label>Évapotranspiration</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#Irrigation -->
+
+    <Class rdf:about="http://www.example.org/irrigation#Irrigation">
+        <rdfs:comment>Le processus d&apos;application contrôlée d&apos;eau aux plantes pour aider à leur croissance. Cette classe représente les événements ou actions liés à l&apos;application d&apos;eau sur les cultures.</rdfs:comment>
+        <rdfs:label>Irrigation</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#IrrigationThreshold -->
+
+    <Class rdf:about="http://www.example.org/irrigation#IrrigationThreshold">
+        <rdfs:comment>Un seuil prédéfini de mesure (comme un niveau d&apos;humidité du sol) au-delà duquel l&apos;irrigation doit être déclenchée. Cette classe peut être utilisée pour définir les limites au-delà desquelles une intervention est nécessaire.</rdfs:comment>
+        <rdfs:label>Seuil d&apos;irrigation</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#MaizeCrop -->
+
+    <Class rdf:about="http://www.example.org/irrigation#MaizeCrop">
+        <rdfs:comment>Classe représentant la culture du maïs. Elle englobe toutes les caractéristiques, besoins et processus associés à la croissance du maïs, une culture souvent cultivée dans divers systèmes d&apos;irrigation.</rdfs:comment>
+        <rdfs:label>Culture de maïs</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#Sensor -->
+
+    <Class rdf:about="http://www.example.org/irrigation#Sensor">
+        <rdfs:comment>Un dispositif utilisé pour détecter et mesurer des paramètres spécifiques dans l&apos;environnement, tels que l&apos;humidité du sol, la tension du sol, la température, etc. Cette classe est une catégorie générale pour tous les types de capteurs utilisés dans le système d&apos;irrigation.</rdfs:comment>
+        <rdfs:label>Capteur</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#Soil -->
+
+    <Class rdf:about="http://www.example.org/irrigation#Soil">
+        <rdfs:comment>Le substrat naturel où les plantes poussent. Cette classe représente les propriétés et caractéristiques du sol qui influencent la rétention d&apos;eau, la structure et la fertilité, ainsi que leur impact sur la croissance des plantes.</rdfs:comment>
+        <rdfs:label>Sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#SoilMoisture -->
+
+    <Class rdf:about="http://www.example.org/irrigation#SoilMoisture">
+        <rdfs:comment>La quantité d&apos;eau contenue dans le sol. Cette classe représente la teneur en eau du sol, un facteur crucial pour la croissance des plantes et la gestion de l&apos;irrigation.</rdfs:comment>
+        <rdfs:label>Humidité du sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#SoilTension -->
+
+    <Class rdf:about="http://www.example.org/irrigation#SoilTension">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/irrigation#Soil"/>
+        <rdfs:comment>La mesure de la force avec laquelle l&apos;eau est retenue dans le sol. Une tension élevée indique que l&apos;eau est difficilement disponible pour les plantes, ce qui peut déclencher une irrigation.</rdfs:comment>
+        <rdfs:label>Tension du sol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.example.org/irrigation#WeatherCondition -->
+
+    <Class rdf:about="http://www.example.org/irrigation#WeatherCondition">
+        <rdfs:comment>Classe qui englobe les différentes conditions météorologiques telles que la pluie, le vent, la température et l&apos;humidité, qui peuvent affecter les besoins en irrigation et la croissance des cultures.</rdfs:comment>
+        <rdfs:label>Condition métérologique</rdfs:label>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#EvapotranspirationRate -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#EvapotranspirationRate"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggerThreshold1 -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggerThreshold1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IrrigationTriggerThreshold"/>
+        <ns3:tensionLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</ns3:tensionLevel>
+        <ns3:thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</ns3:thresholdValue>
+        <rdfs:comment>Lorsque la tension du sol atteint ce seuil, l&apos;irrigation doit être déclenchée pour éviter un stress hydrique.</rdfs:comment>
+        <rdfs:label>Seuil de déclenchement de l&apos;irrigation</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold1 -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold"/>
+        <ns3:moistureLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40.0</ns3:moistureLevel>
+        <ns3:thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40.0</ns3:thresholdValue>
+        <rdfs:comment>Ce seuil déclenche l&apos;irrigation lorsque l&apos;humidité du sol est insuffisante pour le développement de la culture.</rdfs:comment>
+        <rdfs:label>Seuil d&apos;humidité 1</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold2 -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold2">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WaterStressThreshold"/>
+        <ns3:moistureLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</ns3:moistureLevel>
+        <ns3:thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</ns3:thresholdValue>
+        <rdfs:comment>Seuil critique pour l&apos;humidité du sol en dessous duquel le maïs entre en stress hydrique sévère.</rdfs:comment>
+        <rdfs:label>Seuil d&apos;humidité critique</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThresholdCritical -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThresholdCritical">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilMoistureThreshold"/>
+        <ns3:thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30.0</ns3:thresholdValue>
+        <rdfs:comment>Ce seuil est atteint lorsque l&apos;humidité descend à un niveau critique, nécessitant une action d&apos;irrigation immédiate pour sauver la récolte.</rdfs:comment>
+        <rdfs:label>Seuil d&apos;humidité critique 2</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SoilTensionThreshold1 -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoilTensionThreshold1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoilTensionThreshold"/>
+        <ns3:thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.0</ns3:thresholdValue>
+        <rdfs:comment>Indique une tension du sol suffisamment élevée pour justifier une irrigation, afin d&apos;éviter un stress hydrique.</rdfs:comment>
+        <rdfs:label>Seuil de tension du sol</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#WaterStressThreshold1 -->
+
+    <NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#WaterStressThreshold1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WaterStressThreshold"/>
+        <ns3:tensionLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">70.0</ns3:tensionLevel>
+        <ns3:thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">70.0</ns3:thresholdValue>
+        <rdfs:comment>Ce seuil est utilisé pour indiquer un stress hydrique modéré qui peut affecter légèrement la croissance du maïs.</rdfs:comment>
+        <rdfs:label>Seuil de stress hydrique modéré</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <ns5:author>Marquise Gaëlle Bilounga
+AMOU&apos;OU BIWOLE SAMSON</ns5:author>
+        <rdfs:label>IRRIGMAIZ</rdfs:label>
+        <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</versionInfo>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/etp">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/wc">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/it">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/irrigationEvent">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/sm">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/moisture">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/st">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/tension">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/threshold">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <ns2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isRuleEnabled>
+        <rdfs:comment>Règle combinée pour déclencher l&apos;irrigation en fonction de l&apos;humidité et de la tension</rdfs:comment>
+        <rdfs:label>IBHT</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#SoilMoisture"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/sm"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#moistureLevel"/>
+                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/sm"/>
+                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/moisture"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#SoilTension"/>
+                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/st"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#tensionLevel"/>
+                                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/st"/>
+                                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/tension"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+                                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#thresholdValue"/>
+                                                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/threshold"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Irrigation"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                                                <swrl:arguments rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="http://www.w3.org/2002/07/moisture"/>
+                                                                                    <rdf:Description rdf:about="http://www.w3.org/2002/07/threshold"/>
+                                                                                </swrl:arguments>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                                                        <swrl:arguments rdf:parseType="Collection">
+                                                                                            <rdf:Description rdf:about="http://www.w3.org/2002/07/tension"/>
+                                                                                            <rdf:Description rdf:about="http://www.w3.org/2002/07/threshold"/>
+                                                                                        </swrl:arguments>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#triggersIrrigation"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                        <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <ns2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isRuleEnabled>
+        <rdfs:comment>Règle pour ajuster l&apos;irrigation en fonction de l&apos;ETP et des précipitations</rdfs:comment>
+        <rdfs:label>IBETPP</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Evapotranspiration"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/etp"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#hasEvapotranspiration"/>
+                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/s"/>
+                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/etp"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#WeatherCondition"/>
+                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/wc"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#triggersIrrigation"/>
+                                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Irrigation"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <ns2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isRuleEnabled>
+        <rdfs:comment>Règle d&apos;irrigation basée sur l&apos;humidité du sol</rdfs:comment>
+        <rdfs:label>IBHS</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Soil"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#hasSoilMoisture"/>
+                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/s"/>
+                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/sm"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#SoilMoisture"/>
+                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/sm"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+                                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#triggersIrrigation"/>
+                                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                                        <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Irrigation"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <ns2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isRuleEnabled>
+        <rdfs:comment>Règle d&apos;irrigation basée sur la tension du sol</rdfs:comment>
+        <rdfs:label>IBTS</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Soil"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#hasSoilTension"/>
+                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/s"/>
+                                <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/st"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#SoilTension"/>
+                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/st"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#IrrigationThreshold"/>
+                                                <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/irrigation#triggersIrrigation"/>
+                                                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/it"/>
+                                                        <swrl:argument2 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/irrigation#Irrigation"/>
+                        <swrl:argument1 rdf:resource="http://www.w3.org/2002/07/irrigationEvent"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
